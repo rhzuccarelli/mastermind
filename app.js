@@ -146,11 +146,52 @@ const materials = [
   { code: "E01", item: "LA-2A build materials", state: "TO BUY", eta: "—", blocks: "December assembly" }
 ];
 
-const weekPriority = [
-  "E02 · Bridge — procurement + prototype planning [L]",
-  "D01/D02 · Sable + Lamp — define what must be ready before production [M]",
-  "M01 · Music — one protected creative session [M]",
-  "Procurement pass — long-lead items across physical projects [S]"
+const weekSchedule = [
+  {
+    day: "MON", date: "24 AUG", note: "Keep it light after the workday.",
+    tasks: [
+      { time: "MORNING · 30 MIN", code: "PROCUREMENT", title: "List missing Bridge + Rhodes items", size: "S" },
+      { time: "EVENING", code: "FREE", title: "No project scheduled", size: "PROTECTED", free: true }
+    ]
+  },
+  {
+    day: "TUE", date: "25 AUG", note: "Creative evening.",
+    tasks: [
+      { time: "EVENING · 60–90 MIN", code: "M01 · MUSIC", title: "Song 1 · arrangement / brass", size: "M" }
+    ]
+  },
+  {
+    day: "WED", date: "26 AUG", note: "Recovery / movement.",
+    tasks: [
+      { time: "EVENING", code: "SPORT / LIFE", title: "Sport or completely free", size: "PROTECTED", free: true }
+    ]
+  },
+  {
+    day: "THU", date: "27 AUG", note: "Focused technical block.",
+    tasks: [
+      { time: "EVENING · 60–90 MIN", code: "E02 · BRIDGE", title: "Finalize prototype BOM + decide purchases", size: "M" }
+    ]
+  },
+  {
+    day: "FRI", date: "28 AUG", note: "Leave the week alone.",
+    tasks: [
+      { time: "EVENING", code: "FREE", title: "Personal / social / nothing", size: "PROTECTED", free: true }
+    ]
+  },
+  {
+    day: "SAT", date: "29 AUG", note: "Main deep-work session.",
+    tasks: [
+      { time: "MORNING · 2–3 H", code: "E02 · BRIDGE", title: "Prototype hardware + firmware test", size: "L" },
+      { time: "AFTERNOON + EVENING", code: "FREE", title: "Protected personal time", size: "PROTECTED", free: true }
+    ]
+  },
+  {
+    day: "SUN", date: "30 AUG", note: "One design block, then close the week.",
+    tasks: [
+      { time: "LATE MORNING / AFTERNOON · 60–90 MIN", code: "D01 / D02", title: "Sable + Lamp · define Christmas-market scope", size: "M" },
+      { time: "EVENING · 20 MIN", code: "WEEKLY REVIEW", title: "Update paper sheet + choose next week", size: "S" }
+    ]
+  }
 ];
 
 function renderMonths() {
@@ -219,7 +260,25 @@ function renderMaterials() {
 }
 
 function renderWeek() {
-  document.getElementById("weekPriority").innerHTML = weekPriority.map(item => `<li>${item}</li>`).join("");
+  document.getElementById("weekCalendar").innerHTML = weekSchedule.map(day => `
+    <article class="week-day">
+      <header class="week-day-head">
+        <span class="week-day-name">${day.day}</span>
+        <span class="week-day-date">${day.date}</span>
+      </header>
+      <div class="day-note">${day.note}</div>
+      <div class="day-slots">
+        ${day.tasks.map(task => `
+          <div class="week-task ${task.free ? "free" : ""}">
+            <span class="week-task-time">${task.time}</span>
+            <span class="week-task-code">${task.code}</span>
+            <span class="week-task-title">${task.title}</span>
+            <span class="week-task-size">${task.size}</span>
+          </div>
+        `).join("")}
+      </div>
+    </article>
+  `).join("");
 }
 
 function setupViews() {
