@@ -22,10 +22,10 @@
     </section>
 
     <nav class="view-nav" aria-label="Project views">
-      <button class="view-button is-active" data-view="timeline">TIMELINE</button>
-      <button class="view-button" data-view="projects">PROJECTS</button>
-      <button class="view-button" data-view="materials">MATERIALS</button>
-      <button class="view-button" data-view="week">THIS WEEK</button>
+      <button class="view-button is-active" data-view="timeline" type="button">TIMELINE</button>
+      <button class="view-button" data-view="projects" type="button">PROJECTS</button>
+      <button class="view-button" data-view="materials" type="button">MATERIALS</button>
+      <button class="view-button" data-view="week" type="button">THIS WEEK</button>
     </nav>
 
     <section id="timeline" class="view is-active">
@@ -111,6 +111,33 @@
     </footer>
   </main>
 
-  <script src="app.js"></script>
+  <script>
+    (function () {
+      function showView(viewId) {
+        var target = document.getElementById(viewId);
+        if (!target) return;
+
+        document.querySelectorAll('.view-button').forEach(function (button) {
+          button.classList.toggle('is-active', button.dataset.view === viewId);
+        });
+
+        document.querySelectorAll('.view').forEach(function (view) {
+          view.classList.toggle('is-active', view.id === viewId);
+        });
+
+        if (history.replaceState) history.replaceState(null, '', '#' + viewId);
+      }
+
+      document.querySelectorAll('.view-button').forEach(function (button) {
+        button.addEventListener('click', function () {
+          showView(button.dataset.view);
+        });
+      });
+
+      var initial = location.hash.replace('#', '');
+      if (initial && document.getElementById(initial)) showView(initial);
+    }());
+  </script>
+  <script src="app.js?v=3"></script>
 </body>
 </html>
