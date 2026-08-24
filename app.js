@@ -8,25 +8,46 @@ const projects = [
     status: "ACTIVE",
     next: "Keep Song 1 moving; protect one weekly music block",
     window: [0, 10],
-    milestone: { month: 10, label: "3 RELEASES" }
+    milestone: { month: 10, label: "3 RELEASES" },
+    tasks: [
+      { label: "Song 1 · composition / arrangement", state: "ACTIVE" },
+      { label: "Song 1 · recording", state: "NEXT" },
+      { label: "Song 1 · mix + release", state: "NEXT" },
+      { label: "Song 2 · develop composition", state: "BACKGROUND" },
+      { label: "Song 3 · select / develop", state: "PARKED" }
+    ]
   },
   {
     code: "R01",
     name: "Rhodes restoration",
-    note: "Currently procurement only",
-    status: "WAITING",
-    next: "Buy restoration materials",
-    window: [0, 3],
-    waiting: true
+    note: "Two-stage restoration · Phase 1 Jan 2027 · Phase 2 Jan 2028",
+    status: "PROCUREMENT",
+    next: "Buy and prepare materials for Phase 1",
+    window: [5, 5],
+    milestone: { month: 5, label: "PHASE 1" },
+    tasks: [
+      { label: "Phase 1 · define scope", state: "NEXT", meta: "Jan 2027" },
+      { label: "Phase 1 · buy restoration materials", state: "PROCUREMENT" },
+      { label: "Phase 1 · receive / check materials", state: "WAITING" },
+      { label: "Phase 1 · restoration work", state: "PLANNED", meta: "Jan 2027" },
+      { label: "Phase 2 · define remaining work", state: "FUTURE", meta: "Jan 2028" },
+      { label: "Phase 2 · restoration work", state: "FUTURE", meta: "Jan 2028" }
+    ]
   },
   {
     code: "R02",
-    name: "Rhodes redesign",
-    note: "ELISAVA tutoring · 1.5 h every two weeks",
+    name: "TFG Elisava",
+    note: "Rhodes redesign · tutoring 1.5 h every two weeks",
     status: "BACKGROUND",
-    next: "Feed restoration findings into redesign",
+    next: "Guide the student project and feed relevant restoration findings into it",
     window: [0, 9],
-    milestone: { month: 9, label: "27 MAY" }
+    milestone: { month: 9, label: "27 MAY" },
+    tasks: [
+      { label: "Tutoring session", state: "RECURRING", meta: "1.5 h / 2 weeks" },
+      { label: "Capture restoration insights relevant to redesign", state: "ONGOING" },
+      { label: "Review student development / decisions", state: "ONGOING" },
+      { label: "Final project completion", state: "DEADLINE", meta: "27 May 2027" }
+    ]
   },
   {
     code: "E02",
@@ -35,7 +56,16 @@ const projects = [
     status: "PRIORITY",
     next: "Finalize BOM, buy parts, integrate hardware + firmware",
     window: [0, 2],
-    milestone: { month: 2, label: "15 OCT" }
+    milestone: { month: 2, label: "15 OCT" },
+    tasks: [
+      { label: "Finalize prototype BOM", state: "ACTIVE" },
+      { label: "Order missing components", state: "PROCUREMENT" },
+      { label: "Bring up ESP32-P4 hardware", state: "NEXT" },
+      { label: "Connect encoder + OLED", state: "NEXT" },
+      { label: "Connect / read six faders", state: "NEXT" },
+      { label: "Integrate prototype firmware", state: "NEXT" },
+      { label: "Functional prototype test", state: "MILESTONE", meta: "15 Oct 2026" }
+    ]
   },
   {
     code: "D01",
@@ -44,7 +74,15 @@ const projects = [
     status: "DEADLINE",
     next: "Design → prototype → production",
     window: [0, 4],
-    milestone: { month: 4, label: "CHRISTMAS" }
+    milestone: { month: 4, label: "CHRISTMAS" },
+    tasks: [
+      { label: "Define Christmas-market version", state: "ACTIVE" },
+      { label: "Resolve design / construction", state: "NEXT" },
+      { label: "Prototype", state: "NEXT" },
+      { label: "Buy production materials", state: "PROCUREMENT" },
+      { label: "Produce sale units", state: "NEXT" },
+      { label: "Prepare pricing / presentation", state: "NEXT" }
+    ]
   },
   {
     code: "D02",
@@ -53,7 +91,15 @@ const projects = [
     status: "DEADLINE",
     next: "Design → prototype → production",
     window: [0, 4],
-    milestone: { month: 4, label: "CHRISTMAS" }
+    milestone: { month: 4, label: "CHRISTMAS" },
+    tasks: [
+      { label: "Define Christmas-market version", state: "ACTIVE" },
+      { label: "Resolve design / construction", state: "NEXT" },
+      { label: "Prototype", state: "NEXT" },
+      { label: "Buy production materials", state: "PROCUREMENT" },
+      { label: "Produce sale units", state: "NEXT" },
+      { label: "Prepare pricing / presentation", state: "NEXT" }
+    ]
   },
   {
     code: "E01",
@@ -63,7 +109,14 @@ const projects = [
     next: "Complete material purchasing",
     window: [0, 4],
     waiting: true,
-    milestone: { month: 4, label: "ASSEMBLY" }
+    milestone: { month: 4, label: "ASSEMBLY" },
+    tasks: [
+      { label: "Complete BOM", state: "ACTIVE" },
+      { label: "Order long-lead components", state: "PROCUREMENT" },
+      { label: "Receive / verify parts", state: "WAITING" },
+      { label: "Prepare assembly workspace / documentation", state: "NEXT" },
+      { label: "Start assembly", state: "MILESTONE", meta: "Dec 2026" }
+    ]
   }
 ];
 
@@ -71,7 +124,7 @@ const materials = [
   { code: "E02", item: "Bridge prototype components", state: "TO BUY", eta: "—", blocks: "15 Oct prototype" },
   { code: "D01", item: "Sable prototype / production materials", state: "TO DEFINE", eta: "—", blocks: "Christmas market" },
   { code: "D02", item: "Lamp prototype / production materials", state: "TO DEFINE", eta: "—", blocks: "Christmas market" },
-  { code: "R01", item: "Rhodes restoration materials", state: "TO BUY", eta: "—", blocks: "Restoration" },
+  { code: "R01", item: "Rhodes Phase 1 restoration materials", state: "TO BUY", eta: "—", blocks: "Jan 2027 Phase 1" },
   { code: "E01", item: "LA-2A build materials", state: "TO BUY", eta: "—", blocks: "December assembly" }
 ];
 
@@ -110,13 +163,30 @@ function renderTimeline() {
 }
 
 function renderProjects() {
-  document.getElementById("projectList").innerHTML = projects.map(project => `
-    <article class="project-item">
-      <div class="project-code">${project.code}</div>
-      <div class="project-name"><strong>${project.name}</strong><span>${project.note}</span></div>
-      <div class="project-meta"><span>NEXT</span><br>${project.next}</div>
-      <div class="project-status">${project.status}</div>
-    </article>`).join("");
+  document.getElementById("projectList").innerHTML = projects.map(project => {
+    const tasks = (project.tasks || []).map(task => `
+      <li class="subtask-row">
+        <span class="subtask-mark"></span>
+        <span class="subtask-label">${task.label}</span>
+        ${task.meta ? `<span class="subtask-meta">${task.meta}</span>` : `<span class="subtask-meta"></span>`}
+        <span class="subtask-state">${task.state}</span>
+      </li>`).join("");
+
+    return `
+      <details class="project-item">
+        <summary class="project-summary">
+          <div class="project-code">${project.code}</div>
+          <div class="project-name"><strong>${project.name}</strong><span>${project.note}</span></div>
+          <div class="project-meta"><span>NEXT</span><br>${project.next}</div>
+          <div class="project-status">${project.status}</div>
+          <span class="project-toggle" aria-hidden="true">+</span>
+        </summary>
+        <div class="project-detail">
+          <div class="project-detail-label">SUBTASKS</div>
+          <ol class="subtask-list">${tasks}</ol>
+        </div>
+      </details>`;
+  }).join("");
 }
 
 function renderMaterials() {
