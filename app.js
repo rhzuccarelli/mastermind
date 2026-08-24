@@ -20,12 +20,13 @@ const projects = [
   {
     code: "R01",
     name: "Rhodes restoration",
-    note: "Two-stage restoration · Phase 1 Jan 2027 · Phase 2 Jan 2028",
+    note: "Two-stage restoration · Phase 1 starts late Sep 2026 and targets Jan 2027 · Phase 2 Jan 2028",
     status: "PROCUREMENT",
-    next: "Buy Phase 1 materials now so the January work is unblocked",
-    window: [5, 5],
+    next: "Buy Phase 1 materials now; physical restoration can start in the second half of September",
+    window: [1, 5],
     milestone: { month: 5, label: "PHASE 1" },
     tasks: [
+      { label: "PHASE 1 · Start restoration work", state: "PLANNED", meta: "2nd half Sep 2026" },
       { label: "PHASE 1 · Change tone bar screws", state: "PLANNED", meta: "L" },
       { label: "↳ Buy tone bar screws", state: "PROCUREMENT", meta: "S · ~€70" },
       { label: "PHASE 1 · Change hammer tips", state: "PLANNED", meta: "L" },
@@ -135,13 +136,13 @@ const materials = [
   { code: "E02", item: "Bridge prototype components", state: "TO BUY", eta: "—", blocks: "15 Oct prototype" },
   { code: "D01", item: "Sable prototype / production materials", state: "TO DEFINE", eta: "—", blocks: "Christmas market" },
   { code: "D02", item: "Lamp prototype / production materials", state: "TO DEFINE", eta: "—", blocks: "Christmas market" },
-  { code: "R01", item: "Tone bar screws", state: "TO BUY", eta: "—", blocks: "Phase 1 · Jan 2027" },
-  { code: "R01", item: "Hammer tips", state: "TO BUY", eta: "—", blocks: "Phase 1 · Jan 2027" },
-  { code: "R01", item: "Bushing felt", state: "TO BUY", eta: "—", blocks: "Phase 1 · Jan 2027" },
-  { code: "R01", item: "Fish glue", state: "TO BUY", eta: "—", blocks: "Phase 1 · Jan 2027" },
-  { code: "R01", item: "Jack connector", state: "TO BUY", eta: "—", blocks: "Phase 1 · Jan 2027" },
-  { code: "R01", item: "Protective tape for pickups", state: "TO BUY", eta: "—", blocks: "Phase 1 · Jan 2027" },
-  { code: "R01", item: "Rust remover", state: "TO BUY", eta: "—", blocks: "Phase 1 · Jan 2027" },
+  { code: "R01", item: "Tone bar screws", state: "TO BUY", eta: "—", blocks: "Phase 1 · starts late Sep" },
+  { code: "R01", item: "Hammer tips", state: "TO BUY", eta: "—", blocks: "Phase 1 · starts late Sep" },
+  { code: "R01", item: "Bushing felt", state: "TO BUY", eta: "—", blocks: "Phase 1 · starts late Sep" },
+  { code: "R01", item: "Fish glue", state: "TO BUY", eta: "—", blocks: "Phase 1 · starts late Sep" },
+  { code: "R01", item: "Jack connector", state: "TO BUY", eta: "—", blocks: "Phase 1 · starts late Sep" },
+  { code: "R01", item: "Protective tape for pickups", state: "TO BUY", eta: "—", blocks: "Phase 1 · starts late Sep" },
+  { code: "R01", item: "Rust remover", state: "TO BUY", eta: "—", blocks: "Phase 1 · starts late Sep" },
   { code: "E01", item: "LA-2A build materials", state: "TO BUY", eta: "—", blocks: "December assembly" }
 ];
 
