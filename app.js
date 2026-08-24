@@ -22,16 +22,27 @@ const projects = [
     name: "Rhodes restoration",
     note: "Two-stage restoration · Phase 1 Jan 2027 · Phase 2 Jan 2028",
     status: "PROCUREMENT",
-    next: "Buy and prepare materials for Phase 1",
+    next: "Buy Phase 1 materials now so the January work is unblocked",
     window: [5, 5],
     milestone: { month: 5, label: "PHASE 1" },
     tasks: [
-      { label: "Phase 1 · define scope", state: "NEXT", meta: "Jan 2027" },
-      { label: "Phase 1 · buy restoration materials", state: "PROCUREMENT" },
-      { label: "Phase 1 · receive / check materials", state: "WAITING" },
-      { label: "Phase 1 · restoration work", state: "PLANNED", meta: "Jan 2027" },
-      { label: "Phase 2 · define remaining work", state: "FUTURE", meta: "Jan 2028" },
-      { label: "Phase 2 · restoration work", state: "FUTURE", meta: "Jan 2028" }
+      { label: "PHASE 1 · Change tone bar screws", state: "PLANNED", meta: "L" },
+      { label: "↳ Buy tone bar screws", state: "PROCUREMENT", meta: "S · ~€70" },
+      { label: "PHASE 1 · Change hammer tips", state: "PLANNED", meta: "L" },
+      { label: "↳ Buy hammer tips", state: "PROCUREMENT", meta: "S" },
+      { label: "PHASE 1 · Change bushings", state: "PLANNED", meta: "4 × L" },
+      { label: "↳ Buy bushing felt", state: "PROCUREMENT", meta: "S" },
+      { label: "↳ Buy fish glue", state: "PROCUREMENT", meta: "S" },
+      { label: "PHASE 1 · Adjust pedal mechanism", state: "PLANNED", meta: "L" },
+      { label: "PHASE 1 · Replace / service jack connector", state: "PLANNED", meta: "S" },
+      { label: "↳ Buy jack connector", state: "PROCUREMENT", meta: "S" },
+      { label: "PHASE 1 · Protect pickups with tape", state: "PLANNED", meta: "L" },
+      { label: "↳ Buy protective tape", state: "PROCUREMENT", meta: "S" },
+      { label: "PHASE 1 · Clean rust from harp / frame and other parts", state: "PLANNED", meta: "2 × L" },
+      { label: "↳ Buy rust remover", state: "PROCUREMENT", meta: "S" },
+      { label: "PHASE 1 · Adjust tone and tuning", state: "PLANNED", meta: "2 × L" },
+      { label: "PHASE 2 · Define remaining work", state: "FUTURE", meta: "Jan 2028" },
+      { label: "PHASE 2 · Restoration work", state: "FUTURE", meta: "Jan 2028" }
     ]
   },
   {
@@ -124,7 +135,13 @@ const materials = [
   { code: "E02", item: "Bridge prototype components", state: "TO BUY", eta: "—", blocks: "15 Oct prototype" },
   { code: "D01", item: "Sable prototype / production materials", state: "TO DEFINE", eta: "—", blocks: "Christmas market" },
   { code: "D02", item: "Lamp prototype / production materials", state: "TO DEFINE", eta: "—", blocks: "Christmas market" },
-  { code: "R01", item: "Rhodes Phase 1 restoration materials", state: "TO BUY", eta: "—", blocks: "Jan 2027 Phase 1" },
+  { code: "R01", item: "Tone bar screws", state: "TO BUY", eta: "—", blocks: "Phase 1 · Jan 2027" },
+  { code: "R01", item: "Hammer tips", state: "TO BUY", eta: "—", blocks: "Phase 1 · Jan 2027" },
+  { code: "R01", item: "Bushing felt", state: "TO BUY", eta: "—", blocks: "Phase 1 · Jan 2027" },
+  { code: "R01", item: "Fish glue", state: "TO BUY", eta: "—", blocks: "Phase 1 · Jan 2027" },
+  { code: "R01", item: "Jack connector", state: "TO BUY", eta: "—", blocks: "Phase 1 · Jan 2027" },
+  { code: "R01", item: "Protective tape for pickups", state: "TO BUY", eta: "—", blocks: "Phase 1 · Jan 2027" },
+  { code: "R01", item: "Rust remover", state: "TO BUY", eta: "—", blocks: "Phase 1 · Jan 2027" },
   { code: "E01", item: "LA-2A build materials", state: "TO BUY", eta: "—", blocks: "December assembly" }
 ];
 
