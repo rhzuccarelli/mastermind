@@ -1,5 +1,50 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Mastermind — Project Map</title><link rel="stylesheet" href="styles.css"/><style>.intro h1{font-size:clamp(26px,3vw,48px);line-height:1;letter-spacing:-.04em}@media(max-width:760px){.intro h1{font-size:clamp(30px,8vw,40px)}}</style></head><body><main class="page-shell">
+<html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/><title>Mastermind — Project Map</title><link rel="stylesheet" href="styles.css"/><style>
+.intro h1{font-size:clamp(26px,3vw,48px);line-height:1;letter-spacing:-.04em}
+@media(max-width:760px){
+  body{font-size:13px;overflow-x:hidden}
+  .page-shell{width:calc(100% - 24px);margin:0 12px}
+  .site-header{grid-template-columns:1fr;gap:8px;padding:14px 0 10px}
+  .brand{font-size:20px}
+  .header-meta{justify-content:space-between;gap:10px;font-size:8px;letter-spacing:.09em}
+  .intro{grid-template-columns:1fr;padding:28px 0 24px;gap:14px}
+  .intro h1{font-size:28px;line-height:1.02;letter-spacing:-.035em}
+  .intro-copy{font-size:14px;max-width:none;margin:0}
+  .view-nav{display:grid;grid-template-columns:1fr 1fr;gap:0}
+  .view-button{width:100%;margin:0;padding:12px 8px;border-right:1px solid var(--text);border-bottom:1px solid var(--line);text-align:left;font-size:10px}
+  .view-button:nth-child(2n){border-right:0}.view-button:nth-last-child(-n+2){border-bottom:0}
+  .view{padding:22px 0 40px}
+  .section-heading{grid-template-columns:1fr;gap:4px;margin-bottom:20px}
+  .section-heading h2{font-size:22px}.section-heading p{font-size:12px;max-width:32em}
+  .timeline-wrap{margin-left:-12px;margin-right:-12px;padding-left:12px;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
+  .timeline-grid{min-width:880px;padding-right:12px}
+  .timeline-label{width:150px}.timeline-months{margin-left:150px}.timeline-row{grid-template-columns:150px 1fr;min-height:52px}
+  .timeline-row-label strong{font-size:11px}.timeline-row-label span{font-size:9px}
+  .timeline-deadline-label{font-size:8px}
+  .capacity-band{grid-template-columns:1fr;gap:12px;padding:16px 0}
+  .capacity-items{grid-template-columns:1fr 1fr;gap:12px}.capacity-items strong{font-size:10px}.capacity-items span{font-size:10px}
+  .project-summary{grid-template-columns:42px minmax(0,1fr) 24px;gap:10px;padding:15px 0}
+  .project-code{font-size:9px}.project-name strong{font-size:17px;line-height:1.05}.project-name span{font-size:11px;display:block;margin-top:3px}
+  .project-meta{grid-column:2 / 4;font-size:11px;line-height:1.3}.project-status{grid-column:2;justify-self:start;font-size:8px;padding:4px 7px}.project-toggle{grid-column:3;grid-row:1;font-size:20px}
+  .project-detail{grid-template-columns:1fr;gap:6px;padding:0 0 18px}.project-detail-label{padding-top:0}
+  .subtask-row{grid-template-columns:14px minmax(0,1fr) auto;gap:7px;padding:9px 0;min-height:0;align-items:start}
+  .subtask-label{font-size:12px;line-height:1.3}.subtask-meta{grid-column:2;font-size:10px}.subtask-state{grid-column:3;grid-row:1;font-size:8px;white-space:nowrap}
+  .materials-table-wrap{overflow:visible}
+  .materials-table,.materials-table tbody,.materials-table tr,.materials-table td{display:block;width:100%;min-width:0}
+  .materials-table thead{display:none}.materials-table{border-top:1px solid var(--text)}
+  .materials-table tr{padding:12px 0;border-bottom:1px solid var(--line)}
+  .materials-table td{border:0;padding:2px 0;font-size:12px}
+  .materials-table td:nth-child(1){font-size:9px;letter-spacing:.08em;color:var(--muted)}
+  .materials-table td:nth-child(2){font-size:14px;font-weight:500;padding-top:3px}
+  .materials-table td:nth-child(3){padding-top:7px}.materials-table td:nth-child(4):before{content:'ETA · ';color:var(--muted);font-size:9px;letter-spacing:.08em}.materials-table td:nth-child(5):before{content:'BLOCKS · ';color:var(--muted);font-size:9px;letter-spacing:.08em}
+  .week-summary{grid-template-columns:1fr 1fr;margin-bottom:20px}.week-summary div{padding:10px 8px 10px 0}.week-summary strong{font-size:19px}.week-summary span{font-size:8px}
+  .week-calendar{grid-template-columns:1fr;border-top:1px solid var(--text)}
+  .week-day{min-height:0;border-right:0;border-top:1px solid var(--line);padding:14px 0;gap:8px}.week-day:first-child{border-top:0}.day-note{min-height:0;font-size:10px}.day-slots{gap:10px}
+  .week-task{padding:8px 0 3px}.week-task-title{font-size:14px}.week-task.free{margin-top:8px}.week-task-size{font-size:7px}
+  .week-legend{display:grid;grid-template-columns:1fr 1fr;gap:8px 12px;font-size:9px}
+  .site-footer{flex-direction:column;gap:6px;padding-bottom:24px}
+}
+</style></head><body><main class="page-shell">
 <header class="site-header"><div class="brand">MASTERmind</div><div class="header-meta"><span>PROJECT SYSTEM</span><span>AUG 2026 — JUN 2027</span></div></header>
 <section class="intro"><h1>One picture.<br>Everything in motion.</h1><p class="intro-copy">A compact view of projects, deadlines, dependencies and available attention.</p></section>
 <nav class="view-nav" aria-label="Project views"><button class="view-button is-active" data-view="timeline" type="button">TIMELINE</button><button class="view-button" data-view="projects" type="button">PROJECTS</button><button class="view-button" data-view="materials" type="button">MATERIALS</button><button class="view-button" data-view="week" type="button">THIS WEEK</button></nav>
@@ -7,5 +52,5 @@
 <section id="projects" class="view"><div class="section-heading"><h2>Projects</h2><p>Only a few should demand attention at once.</p></div><div id="projectList" class="project-list"></div></section>
 <section id="materials" class="view"><div class="section-heading"><h2>Materials</h2><p>What still needs action first. Bought and ready items stay below.</p></div><div class="materials-table-wrap"><table class="materials-table"><thead><tr><th>CODE</th><th>ITEM / DECISION</th><th>STATE</th><th>ETA</th><th>BLOCKS</th></tr></thead><tbody id="materialsBody"></tbody></table></div></section>
 <section id="week" class="view"><div class="section-heading"><h2>This week · 24–30 Aug</h2><p>A suggested rhythm with enough structure to move, and enough empty space to remain human.</p></div><div class="week-summary"><div><span>PROJECT TIME</span><strong>~9 h</strong></div><div><span>FOCUSED EVENINGS</span><strong>3</strong></div><div><span>EVENINGS FREE</span><strong>2+</strong></div><div><span>WEEKEND FREE</span><strong>½ day+</strong></div></div><div id="weekCalendar" class="week-calendar" aria-label="Weekly project schedule"></div><div class="week-legend"><span><i class="legend-dot light"></i>30 min · light/admin</span><span><i class="legend-dot medium"></i>60–90 min · focused</span><span><i class="legend-dot long"></i>2–3 h · deep/workshop</span><span><i class="legend-dot free"></i>protected / free</span></div></section>
-<footer class="site-footer"><span>MASTERmind / v0.4</span><span>Structure before pressure.</span></footer></main>
-<script>(function(){function showView(id){var target=document.getElementById(id);if(!target)return;document.querySelectorAll('.view-button').forEach(function(b){b.classList.toggle('is-active',b.dataset.view===id);});document.querySelectorAll('.view').forEach(function(v){v.classList.toggle('is-active',v.id===id);});if(history.replaceState)history.replaceState(null,'','#'+id);}document.querySelectorAll('.view-button').forEach(function(b){b.addEventListener('click',function(){showView(b.dataset.view);});});var initial=location.hash.replace('#','');if(initial&&document.getElementById(initial))showView(initial);}());</script><script src="app.js?v=5"></script><script>(function(){var body=document.getElementById('materialsBody');if(!body)return;var rank={'TO BUY':0,'TO DEFINE':1,'WAITING':2,'READY':3,'BOUGHT':4};var rows=Array.from(body.querySelectorAll('tr'));rows.sort(function(a,b){var sa=a.cells[2]?a.cells[2].innerText.trim():'',sb=b.cells[2]?b.cells[2].innerText.trim():'';return (rank[sa]??9)-(rank[sb]??9);});rows.forEach(function(row){body.appendChild(row);});}());</script></body></html>
+<footer class="site-footer"><span>MASTERmind / v0.5</span><span>Structure before pressure.</span></footer></main>
+<script>(function(){function showView(id){var target=document.getElementById(id);if(!target)return;document.querySelectorAll('.view-button').forEach(function(b){b.classList.toggle('is-active',b.dataset.view===id);});document.querySelectorAll('.view').forEach(function(v){v.classList.toggle('is-active',v.id===id);});if(history.replaceState)history.replaceState(null,'','#'+id);}document.querySelectorAll('.view-button').forEach(function(b){b.addEventListener('click',function(){showView(b.dataset.view);});});var initial=location.hash.replace('#','');if(initial&&document.getElementById(initial))showView(initial);}());</script><script src="app.js?v=6"></script><script>(function(){var body=document.getElementById('materialsBody');if(!body)return;var rank={'TO BUY':0,'TO DEFINE':1,'WAITING':2,'READY':3,'BOUGHT':4};var rows=Array.from(body.querySelectorAll('tr'));rows.sort(function(a,b){var sa=a.cells[2]?a.cells[2].innerText.trim():'',sb=b.cells[2]?b.cells[2].innerText.trim():'';return (rank[sa]??9)-(rank[sb]??9);});rows.forEach(function(row){body.appendChild(row);});}());</script></body></html>
